@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 21:05:34 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/10/27 16:52:28 by oel-bann         ###   ########.fr       */
+/*   Created: 2024/10/27 16:44:22 by oel-bann          #+#    #+#             */
+/*   Updated: 2024/10/27 17:21:20 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void *ft_memchr(const void *s, int c, size_t n)
 {
-    size_t lensrc;
-    size_t lendst;
-    int i;
-    int y;
-    int n;
+    unsigned char *src;
+    unsigned char sh;
+    size_t i;
 
+    src = (unsigned char *)s;
+    sh = (unsigned char)c;
     i = 0;
-    lendst = ft_strlen(dst);
-    lensrc = ft_strlen(src);
-    if (dstsize <= lendst)
-        return (lensrc + dstsize);
-    n = dstsize - lendst - 1;
-    y = lendst;
-    while (src[i] && (i < n))
+    while (src[i] && i < n)
     {
-        dst[y] = src[i];
-        y++;
+        if (src[i] == sh)
+            return (void *) &src[i];
         i++;
     }
-    dst[lendst] = '\0';
-    return (lendst +lensrc);
+    return NULL;
 }
