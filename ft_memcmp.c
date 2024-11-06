@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:38:03 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/10/27 17:57:51 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/01 03:04:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,27 @@
 
 int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    unsigned char *s = 
-    /* loop over both strings until we reach n bytes */
-    /* check if current s1 byte is different than current
-     * s2 byte
-     */
-           /* if bytes are different, return the difference
-            * between both characters
-            */
-     /* if we read both byte strings until n bytes and no difference
-      * were found, return 0 as there is no difference
-      */h2
+    unsigned char *str1;
+    unsigned char *str2;
+	size_t i;
+
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	while(str1[i] && str2[i] && i < n)
+	{
+		if(str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return 0;
+}
+int main()
+{
+	char *str1 = "oussama";
+	char *str2 = "oussamr";
+	int i = '\r';
+	printf("%d",i);
+	printf ("%d\n",ft_memcmp(str1,str2,7));
+	printf ("%d",ft_memcmp(str1,str2,7));
 }

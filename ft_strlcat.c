@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:05:34 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/10/27 16:52:28 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/01 03:12:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
     size_t lensrc;
     size_t lendst;
     int i;
-    int y;
+    size_t y;
     int n;
 
     i = 0;
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
     lensrc = ft_strlen(src);
     if (dstsize <= lendst)
         return (lensrc + dstsize);
-    n = dstsize - lendst - 1;
+    n = (int)(dstsize - lendst - 1);
     y = lendst;
     while (src[i] && (i < n))
     {

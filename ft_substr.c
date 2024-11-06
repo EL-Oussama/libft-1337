@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 20:05:16 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/11/01 03:12:57 by marvin           ###   ########.fr       */
+/*   Created: 2024/10/31 23:00:16 by marvin            #+#    #+#             */
+/*   Updated: 2024/10/31 23:00:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy( char *dst, const char *src, size_t dstsize)
+char *ft_substr(char const *s, unsigned int start,size_t len)
 {
-    size_t lensrc;
-    size_t i;
+    char * substr;
+    int i;
 
-    lensrc = 0;
+    if (!s)
+        return (NULL);
+    if (start > ft_strlen(s))
+        return (ft_strdup(""));
+    
     i = 0;
-    while ((src[lensrc]))
-        lensrc++;
-    if (dstsize == 0)
-		return (lensrc);
-    if(src[i] == '\0')
+    substr = (char *)ft_calloc(len + 1, sizeof(char));
+    if(substr == NULL)
+        return NULL;
+    len = len + start;
+    while(start <= len && s[start])
     {
-        dst[i] = '\0';
-        return 0;
-    }
-    dstsize--;
-    while(src[i] && i < dstsize)
-    {
-        dst[i] = src[i];
+        substr[i] = s[start];
+        start++;
         i++;
     }
-    dst[i] = '\0';
-    return (lensrc);
+    return substr;
 }

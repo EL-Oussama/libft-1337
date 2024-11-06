@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 20:05:16 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/11/01 03:12:57 by marvin           ###   ########.fr       */
+/*   Created: 2024/11/02 00:50:14 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/02 00:50:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy( char *dst, const char *src, size_t dstsize)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    size_t lensrc;
-    size_t i;
+    int i;
+    size_t lens;
+    char *str;
 
-    lensrc = 0;
     i = 0;
-    while ((src[lensrc]))
-        lensrc++;
-    if (dstsize == 0)
-		return (lensrc);
-    if(src[i] == '\0')
+    lens = ft_strlen(s);
+    str = (char *) ft_calloc(lens + 1, sizeof(char));
+    if(!str)
+        return (NULL);
+    while(s[i])
     {
-        dst[i] = '\0';
-        return 0;
-    }
-    dstsize--;
-    while(src[i] && i < dstsize)
-    {
-        dst[i] = src[i];
+        str[i] = f(i,s[i]);
         i++;
     }
-    dst[i] = '\0';
-    return (lensrc);
+    return str;
 }

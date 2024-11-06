@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 20:05:16 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/11/01 03:12:57 by marvin           ###   ########.fr       */
+/*   Created: 2024/10/31 01:43:20 by marvin            #+#    #+#             */
+/*   Updated: 2024/10/31 01:43:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy( char *dst, const char *src, size_t dstsize)
+char *ft_strdup(const char *s1)
 {
-    size_t lensrc;
-    size_t i;
+    char *dupli;
+    int i;
 
-    lensrc = 0;
     i = 0;
-    while ((src[lensrc]))
-        lensrc++;
-    if (dstsize == 0)
-		return (lensrc);
-    if(src[i] == '\0')
+    if (s1[i] == '\0')
     {
-        dst[i] = '\0';
-        return 0;
+        dupli = (char *) malloc(1);
+        dupli[0] = '\0';
+        return dupli;
     }
-    dstsize--;
-    while(src[i] && i < dstsize)
+    dupli = (char *) malloc(ft_strlen(s1));
+    if (dupli == NULL)
+        return NULL;
+    while(s1[i])
     {
-        dst[i] = src[i];
+        dupli[i] = s1[i];
         i++;
     }
-    dst[i] = '\0';
-    return (lensrc);
+    return (dupli);
 }
