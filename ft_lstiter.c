@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:45:47 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/10/26 18:44:19 by oel-bann         ###   ########.fr       */
+/*   Created: 2024/11/09 07:40:59 by oel-bann          #+#    #+#             */
+/*   Updated: 2024/11/09 07:42:08 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	unsigned char *psrc;
-	unsigned char *pdst;
-	size_t i;
-
-	if ((dst == NULL) && (src == NULL))
-		return (NULL);
-	psrc = (unsigned char *)src;
-	pdst = (unsigned char *)dst;
-	i = 0;
-	while (i < n)
+	t_list *node;
+	node = lst;
+	if (!lst || !f)
+		return ;
+	while (node)
 	{
-		pdst[i] = psrc[i];
-		i++;
+		f(node->content);
+		node = node->next;
 	}
-	return ((void *)pdst);
 }

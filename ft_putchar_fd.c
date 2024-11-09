@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:45:47 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/10/26 18:44:19 by oel-bann         ###   ########.fr       */
+/*   Created: 2024/11/09 07:43:49 by oel-bann          #+#    #+#             */
+/*   Updated: 2024/11/09 07:44:00 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	unsigned char *psrc;
-	unsigned char *pdst;
-	size_t i;
-
-	if ((dst == NULL) && (src == NULL))
-		return (NULL);
-	psrc = (unsigned char *)src;
-	pdst = (unsigned char *)dst;
-	i = 0;
-	while (i < n)
-	{
-		pdst[i] = psrc[i];
-		i++;
-	}
-	return ((void *)pdst);
+	write(fd, &c, 1);
 }
