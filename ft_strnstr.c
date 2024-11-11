@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 00:51:07 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/11/09 07:45:55 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/10 06:45:41 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		j = 0;
 		if (haystack[i] == needle[j])
 		{
-			while (needle[j])
-			{
-				if (needle[j] != haystack[i + j])
-					return (NULL);
+			while (needle[j] && (j + i) < len && haystack[i + j] == needle[j])
 				j++;
-			}
-			return (char *)(haystack + i);
+			if (j == ft_strlen(needle))
+				return ((char *)(haystack + i));
 		}
 		i++;
 	}

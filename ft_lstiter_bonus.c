@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 17:38:03 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/11/11 14:48:44 by oel-bann         ###   ########.fr       */
+/*   Created: 2024/11/09 07:40:59 by oel-bann          #+#    #+#             */
+/*   Updated: 2024/11/10 06:22:29 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
-	size_t			i;
+	t_list	*node;
 
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	i = 0;
-	if (n == 0)
-		return (0);
-	n = n - 1;
-	while (i < n)
+	node = lst;
+	if (!lst || !f)
+		return ;
+	while (node)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
-		i++;
+		f(node->content);
+		node = node->next;
 	}
-	return ((str1[i] - str2[i]));
 }

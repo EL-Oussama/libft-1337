@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 00:28:53 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/11/09 07:46:05 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:59:19 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t lents;
+	size_t	lents;
 
 	lents = ft_strlen(s);
-	if (c == '\0')
+	if (!s)
+		return (NULL);
+	if ((char)c == '\0')
 		return ((char *)&s[lents]);
-	while (lents > 0)
+	while (lents)
 	{
-		if (s[lents] == c)
-			return ((char *)&s[lents]);
+		if (s[lents - 1] == (char)c)
+			return ((char *)&s[lents - 1]);
 		lents--;
 	}
 	return (NULL);

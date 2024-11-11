@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 07:43:37 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/11/09 07:44:06 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/10 22:26:09 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putendl_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (s && s[i])
 	{
 		write(fd, &s[i], 1);
 		i++;

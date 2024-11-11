@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 16:25:09 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/06 22:03:14 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/10 22:55:38 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,4 @@ char	*ft_itoa(int n)
 	}
 	str[numlent] = (nb % 10) + '0';
 	return (str);
-}
-
-int	main(void)
-{
-	printf("%s", ft_itoa(0));
 }

@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 00:50:14 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/09 07:45:43 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/10 22:25:20 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int i;
-	size_t lens;
-	char *str;
+	int		i;
+	size_t	lens;
+	char	*str;
 
 	i = 0;
+	if (!s || !f)
+		return (NULL);
 	lens = ft_strlen(s);
 	str = (char *)ft_calloc(lens + 1, sizeof(char));
 	if (!str)

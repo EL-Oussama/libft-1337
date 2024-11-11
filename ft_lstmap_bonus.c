@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 00:23:55 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/10 06:18:35 by oel-bann         ###   ########.fr       */
+/*   Created: 2024/11/09 04:56:35 by oel-bann          #+#    #+#             */
+/*   Updated: 2024/11/10 06:25:52 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned char	*mem;
+	t_list	*newlst;
+	t_list	*oldlst;
+	t_list	*ilyas;
+	void	*countent;
 
-	if (count == 0 || size == 0)
-		return (malloc(1));
-	mem = (unsigned char *)malloc(count * size);
-	if (mem == NULL)
+	oldlst = lst;
+	newlst = NULL;
+	if (!lst || !f || !del)
 		return (NULL);
-	ft_bzero(mem, count * size);
-	return ((void *)(mem));
+	while (lst)
+	{
+		countent = f(lst->content);
+		ilyas = ft_lstnew(countent);
+		if (!ilyas)
+		{
+			del(countent);
+			ft_lstclear(&newlst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&newlst, ilyas);
+		lst = lst->next;
+	}
+	return (newlst);
 }

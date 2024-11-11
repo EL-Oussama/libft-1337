@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 21:12:19 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/09 19:02:48 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/10 22:34:50 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ int	countword(char *str, char sep)
 	countw = 0;
 	while (str && str[i])
 	{
-		if ((str[i] != sep && str[i + 1] == sep) || (str[i] != sep && str[i
-				+ 1] == '\0'))
+		if ((str[i] != sep && str[i + 1] == sep) || \
+			(str[i] != sep && str[i + 1] == '\0'))
 			countw++;
 		i++;
 	}
 	return (countw);
 }
+
 int	countwletters(char *str, char sep)
 {
 	int	countlet;
@@ -72,9 +73,10 @@ char	*fill_word(char *str, char sep)
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	int		i;
-	int		y;
 
+	int i, (y);
+	if (!s)
+		return (NULL);
 	i = 0;
 	tab = (char **)ft_calloc((countword((char *)s, c) + 1), sizeof(char *));
 	if (!tab)
@@ -85,10 +87,9 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			tab[y] = fill_word((char *)&s[i], c);
-			if (!tab[y])
-				return (ft_free(tab, y));
+			if (!tab[y++])
+				return (ft_free(tab, --y));
 			i = i + countwletters((char *)&s[i], c);
-			y++;
 		}
 		else
 			i++;

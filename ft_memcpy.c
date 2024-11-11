@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:45:47 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/10/26 18:44:19 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:49:39 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char *psrc;
-	unsigned char *pdst;
-	size_t i;
+	unsigned char	*psrc;
+	unsigned char	*pdst;
+	size_t			i;
 
 	if ((dst == NULL) && (src == NULL))
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:16:33 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/11/09 21:19:01 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/10 06:56:34 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char				*ft_itoa(int n);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char				**ft_split(char const *s, char c);
 // -----------SIZE_T----------------------------------------
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
