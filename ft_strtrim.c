@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 00:41:06 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/10 22:54:04 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/11 18:04:27 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (end > start && strver(*end, set))
 		end--;
 	str = (char *)ft_calloc(ft_strlen(start) - \
-		ft_strlen(end) + 2, sizeof(char));
+		ft_strlen(end + 1) + 1, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	i = 0;

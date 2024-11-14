@@ -6,7 +6,7 @@
 /*   By: oel-bann <oel-bann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 07:45:03 by oel-bann          #+#    #+#             */
-/*   Updated: 2024/11/10 06:38:43 by oel-bann         ###   ########.fr       */
+/*   Updated: 2024/11/11 18:02:32 by oel-bann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ char	*ft_strdup(const char *s1)
 	int		i;
 
 	i = 0;
-	if (s1[i] == '\0')
-	{
-		dupli = (char *)malloc(1);
-		dupli[0] = '\0';
-		return (dupli);
-	}
 	dupli = (char *)ft_calloc(ft_strlen(s1) + 1, sizeof(char));
 	if (dupli == NULL)
 		return (NULL);
@@ -34,3 +28,9 @@ char	*ft_strdup(const char *s1)
 	}
 	return (dupli);
 }
+
+// int main()
+// {
+// 	printf("%s\n",ft_strdup(""));
+// 	printf("%s\n",strdup(""));
+// }

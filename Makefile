@@ -18,7 +18,10 @@ OBJBONUS = $(BONUSSRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rc $(NAME) $?
+	ar rc $(NAME) $(OBJ)
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 bonus : $(OBJBONUS)
 	@ar rcs $(NAME) $(OBJBONUS)
